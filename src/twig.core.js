@@ -1077,10 +1077,12 @@ module.exports = function (Twig) {
      * @param {Twig.Template} template   The twig.js template to store.
      */
     Twig.Templates.save = function(template) {
+      if(Twig.cache) {
         if (template.id === undefined) {
             throw new Twig.Error("Unable to save template with no id");
         }
         Twig.Templates.registry[template.id] = template;
+      }
     };
 
     /**
